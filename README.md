@@ -59,5 +59,12 @@ URL: https://kafka.apache.org/quickstart
 	
         
     Una vez que todos los servicios se hayan iniciado correctamente, tendrá un entorno Kafka básico ejecutándose y listo para usar.
+```
+
+### Config del proyecto:
 
 
+
+1. Se crea el Topic
+
+### Topic:
