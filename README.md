@@ -5,7 +5,7 @@
 1- Crear repositorio en GitHub en: https://github.com/canitanoa/
 2- git init 
 3- git add . 
-4- git commit -m "Crear proyecto kafka-example" 
+4- git commit -m "Crear proyecto springboot-kafka-example" 
 5- git remote add origin https://github.com/canitanoa/springboot-kafka-example.git 
 6- git push -u origin master 
 ```
