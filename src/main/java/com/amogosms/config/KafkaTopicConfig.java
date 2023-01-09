@@ -8,6 +8,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
+    //Definimos el nombre del Topico
     @Bean
     public NewTopic amigosmsTopic(){
         return TopicBuilder.name("amigosms")

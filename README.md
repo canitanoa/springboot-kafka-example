@@ -61,10 +61,91 @@ URL: https://kafka.apache.org/quickstart
     Una vez que todos los servicios se hayan iniciado correctamente, tendrá un entorno Kafka básico ejecutándose y listo para usar.
 ```
 
-### Config del proyecto:
+### Arquitectura:
+
+*Componenetes:*
+
+- Producer: Genera el mensaje
+- Topic: Es la colección de eventos donde se alojará el mensaje
+- Consumer: Lee el mensaje del Topico
 
 
+![alt text](https://github.com/canitanoa/springboot-kafka-example/blob/master/imgs/Topic.png?raw=true)
 
-1. Se crea el Topic
+### Configuración del proyecto:
 
-### Topic:
+- Se crea la configuración para el *Tipico*: 
+  - KafkaTopicConfig.java
+	- Definimos el nombre del Topico
+- Se crea la configuración para el *Producer*: 
+  - KafkaProducerConfig.java
+	- Definimos el server configurado en las properties
+	- Definimos la configuracion para pasar al Producer Factory
+	- Definimos el Producer Factory, que es el responsable de creal la instancia del Producer
+	- Definimos la forma en que vamos a enviar los mensajes con el KafkaTemplate
+- Se crea el *Consumer*:
+  - KafkaConsumerConfig.java
+    - asas
+- Se crea la configuración para el *Listener* (para consumir los mensajes de los topicos de Kafka)
+  - kaConsumerConfig.java
+    - Definimos el server configurado en las properties
+    - Definimos la configuracion para pasar al Consumer Factory
+    - Definimos el Consumer Factory
+    - Definimos el Listener que va a sondear todos los registros de Kafka
+- Se crea el *Producer*:
+  - KafkaExampleApplication.java
+    - Dodne por medio de CommandLineRunner se envian los mensajes al topico
+- Se crea el *Producer*:
+  - KafkaListeners.java
+    - Dodne por medio del Listener se consumen los mensajes
+
+### Prueba: 
+```txt
+1.Clean_Package.cmd
+2.RUN_App.cmd
+3.OPEN_Console_Consumer.cmd
+4.Ejecutar el POST de /messages en "kafka-example.postman_collection.json"
+
+
+1. Producir el mensaje:
+
+	- KafkaExampleApplication.java:
+		Dentro se encuentra un CommandLineRunner que envia un mansaje 
+		al topico 'amigosms' por medio del template 'kafkaTemplate'
+	
+		Para probarlo ejecutar la clase  KafkaExampleApplication.java
+	
+2. Consumir el mensaje: 
+	- kafka-console-consumer.bat
+		En los paquetes de intalacion de kafka se encuentra el .bat para 
+		leer los mensaje del topico (esto simula al consumer)
+		
+		Para probarlo ejecutar (desde el raiz donde se intalo kafka): 
+		.\bin\windows\kafka-console-consumer.bat --topic amigosms --from-beginning --bootstrap-server localhost:9092
+```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
